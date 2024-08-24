@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio> // For printf
+#include <bitset>
 using namespace std;
 
 void fastScan(unsigned long long int &number) {
@@ -26,7 +27,7 @@ void fastScan(unsigned long long int &number) {
 }
 
 int main() {
-    unsigned long long int T, L, R, k, zerosCount = 0, tempOnes = 1;
+    unsigned long long int T, L, R, k, zerosCount = 0, tempOnes = 0;
 
     T = 1;
     // cout<<T;
@@ -40,12 +41,17 @@ int main() {
                 printf("pass here %llu\n", (1ULL << k) - 1);
             }
             else{
-                for(int i = 0; i <= 60; i++){
+                unsigned long long int tempL = L;
+                for(int i = 0; tempL; i++){
                     if(zerosCount == k)
                         break;
-                    zerosCount += (L & 1) ? 0 : 1;
-                    tempOnes = (tempOnes << 1) | 1;
-                    L >>= 1;
+                    if(tempL & 1)
+                        k -= 1;
+                    else
+                        zerosCount += 1;
+                    tempOnes = tempOnes << 1 | 1;
+                    tempL >>= 1;
+                    cout<< bitset<60>(L)<<endl<<zerosCount<<endl<<bitset<60>(tempOnes)<<endl<<endl;
                 }
                 if(zerosCount == k){
                     printf("%llu", L | tempOnes);
