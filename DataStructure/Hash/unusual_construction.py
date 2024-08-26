@@ -10,7 +10,7 @@ for test in range(T):
     for bridges in range(M):
         name1, name2, price = input().split(' ')
 
-        name = min(int(name1), int(name2)) + max(int(name1), int(name2))
+        name = str(min(int(name1), int(name2))) + ' ' + str(max(int(name1), int(name2)))
         
         if name in price_list:
             num_list[name] += 1

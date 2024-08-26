@@ -1,0 +1,8 @@
+Partially accepted
+
+case 1:
+name1 = 12
+name2 = 23
+
+name1 = 23
+name2 = 12
