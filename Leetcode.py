@@ -25,5 +25,5 @@ class Solution:
         if len(stack) == 0:
             return True
 
-temp = Solution()
-print(temp.isValid(s = '()'))
+# temp = Solution()
+# print(temp.isValid(s = '()'))
